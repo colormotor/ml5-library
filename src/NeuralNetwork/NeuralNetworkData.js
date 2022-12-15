@@ -136,14 +136,14 @@ class NeuralNetworkData {
         inputMeta[k].min = nnUtils.getMin(dataAsArray);
         inputMeta[k].max = nnUtils.getMax(dataAsArray);
         if (inputMeta[k].max - inputMeta[k].min < Number.EPSILON*10){
-          inputMeta[k].max = inputMeta[k] + 1;
+          inputMeta[k].max = inputMeta[k].min + 1;
         }
       } else if (inputMeta[k].dtype === 'array') {
         const dataAsArray = dataRaw.map(item => item[xsOrYs][k]).flat();
         inputMeta[k].min = nnUtils.getMin(dataAsArray);
         inputMeta[k].max = nnUtils.getMax(dataAsArray);
         if (inputMeta[k].max - inputMeta[k].min < Number.EPSILON*10){
-          inputMeta[k].max = inputMeta[k] + 1;
+          inputMeta[k].max = inputMeta[k].min + 1;
         }
       }
     });
